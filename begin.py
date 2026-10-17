@@ -691,3 +691,175 @@ elif c < 0:
 
 print(pos_count)
 print(neg_count)
+
+
+# For7. Даны A и B (A < B). Найти сумму всех целых чисел от A до B включител
+a = int(input())
+b = int(input())
+total = 0
+for i in range(a, b + 1):
+    total += i
+print(total)
+
+
+# For1. Даны целые числа K и N (N > 0). Вывести N раз число K.
+
+k = int(input())
+n = int(input())
+for _ in range(n):
+    print(k)
+
+
+# For3. Даны A и B (A < B). Вывести в порядке убывания все целые числа
+# между A и B (не включая A и B) и их количество.
+
+a = int(input())
+b = int(input())
+
+count = 0
+
+for i in range(b - 1, a, -1):
+    print(i)
+count += 1
+
+print(count)
+
+
+# For10. Дано N (> 0). Найти сумму 1 + 1/2 + 1/3 + ... + 1/N.
+
+n = int(input())
+
+
+total = 0.0
+for i in range(1, n + 1):
+    total += 1 / i
+
+print(total)
+
+
+# For14. Дано N (> 0). Найти N2 по формуле: N2 = 1 + 3 + 5 + ... + (2·N −
+
+n = int(input())
+
+square = 0
+
+for i in range(1, 2 * n, 2):
+    square += i
+
+print(square)
+
+
+# For2: Даны два целых числа A и B (A < B). Вывести в порядке возрастания все целые числа, расположенные между A и B (включая сами числа A и B), а также количество N этих чисел.
+
+A = int(input("Введите число A: "))
+B = int(input("Введите число B: "))
+
+count = 0
+for i in range(A, B + 1):
+    print(i)
+    count += 1
+
+print(count)
+
+
+# For4: Дано вещественное число — цена 1 кг конфет. Вывести стоимость 1, 2, ..., 10 кг конфет.
+
+price = float(input("Введите цену 1 кг конфет: "))
+
+for kg in range(1, 11):
+    cost = kg * price
+    print(f"{kg} кг = {cost:.2f}")
+
+
+# For5: Дано вещественное число — цена 1 кг конфет. Вывести стоимость 0.1, 0.2, ..., 1 кг конфет.
+
+price = float(input("Введите цену 1 кг конфет: "))
+
+for i in range(1, 11):
+    kg = i / 10
+    cost = kg * price
+    print(f"{kg:.1f} кг = {cost:.2f}")
+
+
+# For6: Дано вещественное число — цена 1 кг конфет. Вывести стоимость 1.2, 1.4, ..., 2 кг конфет.
+
+price = float(input("Введите цену 1 кг конфет: "))
+
+for i in range(12, 21, 2):
+    kg = i / 10
+    cost = kg * price
+    print(f"{kg:.1f} кг = {cost:.2f}")
+
+
+# For8: Даны два целых числа A и B (A < B). Найти произведение всех целых чисел от A до B включительно.
+
+A = int(input("Введите число A: "))
+B = int(input("Введите число B: "))
+
+product = 1
+for i in range(A, B + 1):
+    product *= i
+
+print(product)
+
+
+# For9: Даны два целых числа A и B (A < B). Найти сумму квадратов всех целых чисел от A до B включительно.
+
+A = int(input("Введите число A: "))
+B = int(input("Введите число B: "))
+
+total_sum = 0
+for i in range(A, B + 1):
+    total_sum += i ** 2
+
+print(total_sum)
+
+
+# For11: Дано целое число N (> 0). Найти сумму N² + (N + 1)² + (N + 2)² + ... + (2·N)².
+
+N = int(input("Введите число N: "))
+
+total_sum = 0
+for i in range(N, 2 * N + 1):
+    total_sum += i ** 2
+
+print(total_sum)
+
+
+# For12: Дано целое число N (> 0). Найти произведение 1.1 · 1.2 · 1.3 · ... (N сомножителей).
+
+N = int(input("Введите число N: "))
+
+product = 1.0
+for i in range(1, N + 1):
+    multiplier = 1.0 + (i / 10)
+    product *= multiplier
+
+print(f"{product:.4f}")
+
+
+# For13: Дано целое число N (> 0). Найти значение выражения 1.1 - 1.2 + 1.3 - ... (N слагаемых, знаки чередуются).
+
+N = int(input("Введите число N: "))
+
+total_sum = 0.0
+sign = 1.0
+
+for i in range(1, N + 1):
+    term = 1.0 + (i / 10)
+    total_sum += sign * term
+    sign = -sign
+
+print(f"{total_sum:.4f}")
+
+
+# For15: Дано вещественное число A и целое число N (> 0). Найти A в степени N: A^N = A * A * ... * A (число A перемножается N раз).
+
+A = float(input("Введите число A: "))
+N = int(input("Введите число N: "))
+
+result = 1.0
+for _ in range(N):
+    result *= A
+
+print(result)
