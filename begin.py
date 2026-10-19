@@ -1057,3 +1057,355 @@ while total_sum + (1 / (K + 1)) < A:
 
 print(K)
 print(f"{total_sum:.4f}")
+
+
+# Err7. Читать ввод, пока не будет введено целое число.
+# Некорректный ввод не считается и не роняет программу.
+
+while True:
+    try:
+        number = int(input())
+        break
+    except ValueError:
+        print("Это не число. Попробуй ещё:")
+print(number)
+
+
+# Err1. Прочитать целое число и вывести его.
+# Если введено не число — вывести "Ошибка ввода".
+
+try:
+    number = int(input())
+    print(number)
+except ValueError:
+    print("Ошибка ввода")
+
+
+# Err3. Прочитать два целых числа и вывести частное.
+# Нечисловой ввод — "Ошибка ввода", ноль в делителе —
+# "Делить на ноль нельзя".
+
+try:
+    a = int(input())
+    b = int(input())
+    print(a / b)
+except ValueError:
+    print("Ошибка ввода")
+except ZeroDivisionError:
+    print("Делить на ноль нельзя")
+
+
+# Err4. Прочитать целое число; в else вывести 100 / n,
+# в finally вывести "Вычисление завершено".
+
+try:
+    n = int(input())
+    result = 100 / n
+except ValueError:
+    print("Ошибка ввода")
+except ZeroDivisionError:
+    print("Делить на ноль нельзя")
+else:
+    print(result)
+finally:
+    print("Вычисление завершено")
+
+
+# Err8. Читать числа до пустой строки; нечисловые строки
+# пропускать со счётом. Вывести сумму и число пропусков.
+
+total = 0
+skipped = 0
+while True:
+    line = input()
+    if line == "":
+        break
+try:
+    total += int(line)
+except ValueError:
+    skipped += 1
+    print("Пропущено: не число")
+print(total)
+print(skipped)
+
+
+# Err10. Читать пункт меню 1..5 с двумя уровнями проверки:
+# формат и диапазон. Вывести выбранный пункт.
+
+while True:
+    try:
+        choice = int(input())
+    except ValueError:
+        print("Введите число")
+        continue
+    if 1 <= choice <= 5:
+        break
+    print("Такого пункта нет")
+print(choice)
+
+
+# Err2: Прочитать два целых числа и вывести их частное с одним знаком после точки. При делении на ноль вывести «Делить на ноль нельзя». Нечисловой ввод обрабатывать не требуется.
+
+try:
+    a = int(input())
+    b = int(input())
+    result = a / b
+    print(f"{result:.1f}")
+except ZeroDivisionError:
+    print("Делить на ноль нельзя")
+
+
+# Err5: Прочитать строку и целое число – индекс. Вывести символ строки под этим индексом. Если индекса нет, вывести «Нет такого символа». Нечисловой ввод обрабатывать не требуется.
+
+s = input()
+try:
+    index = int(input())
+    print(s[index])
+except IndexError:
+    print("Нет такого символа")
+
+
+# Err6: Та же задача, что Err5, но с двумя ветками: нечисловой индекс – «Ошибка ввода», индекс вне границ – «Нет такого символа».
+
+s = input()
+try:
+    index = int(input())
+    print(s[index])
+except ValueError:
+    print("Ошибка ввода")
+except IndexError:
+    print("Нет такого символа")
+
+
+# Err7: Читать ввод, пока не будет введено целое число. Некорректный ввод не роняет программу и не считается: печатается «Это не число. Попробуй ещё:», чтение повторяется. Вывести полученное число.
+
+while True:
+    try:
+        number = int(input())
+        print(number)
+        break
+    except ValueError:
+        print("Это не число. Попробуй ещё:")
+
+
+# Err9 СЛОЖНОЕ: Прочитать возраст. Если число отрицательное или больше 120, поднять ValueError с текстом «Возраст вне допустимого диапазона» и поймать его же: в except вывести «Отклонено:» и текст ошибки. Корректный возраст вывести как «Принято:» и число.
+
+try:
+    age = int(input())
+    if age < 0 or age > 120:
+        raise ValueError("Возраст вне допустимого диапазона")
+    print(f"Принято: {age}")
+except ValueError as e:
+    print(f"Отклонено: {e}")
+
+
+# Err11: Прочитать два числа и вывести их частное. Обе возможные ошибки обработать одним кортежем в except с сообщением «Посчитать не удалось»; при успехе в else вывести частное с двумя знаками после точки.
+
+try:
+    a = float(input())
+    b = float(input())
+    result = a / b
+except (ValueError, ZeroDivisionError):
+    print("Посчитать не удалось")
+else:
+    print(f"{result:.2f}")
+
+
+# Err12 СЛОЖНОЕ: Прочитать целое число. При ошибке вывести текст исключения и его тип отдельными строками, пользуясь as e и type(e). При успехе вывести само число.
+
+try:
+    number = int(input())
+    print(number)
+except Exception as e:
+    print(e)
+    print(type(e))
+
+
+# List5
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+d = int(input())
+a.append(d)
+print(a)
+print(len(a))
+
+
+# List1
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+print(len(a))
+print(a[0])
+
+
+# List4
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+imax = 0
+for i in range(len(a)):
+    if a[i] > a[imax]:
+        imax = i
+print(imax)
+print(a[imax])
+
+
+# List6
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+k1 = int(input())
+k2 = int(input())
+b = a[k1:k2 + 1]
+print(b)
+s = 0
+for x in b:
+    s = s + x
+print(s)
+
+# List8
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+d = int(input())
+if d in a:
+    a.remove(d)
+print(a)
+print(len(a))
+
+
+# List11
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+k = 0
+for i in range(len(a)):
+    if a[i] < 0:
+        a[i] = 0
+        k = k + 1
+print(a)
+print(k)
+
+
+# List2
+
+A = list(map(int, input().split()))
+K = int(input())
+
+print(A[K])
+print(A[-1])
+print(K)
+
+
+# List3
+
+A = list(map(int, input().split()))
+
+even_indexed_elements = A[0::2]
+
+sum_even = sum(even_indexed_elements)
+prod_even = 1
+for x in even_indexed_elements:
+    prod_even *= x
+
+print(sum_even)
+print(prod_even)
+
+
+# List5
+
+A = list(map(int, input().split()))
+D = int(input())
+
+A.append(D)
+print(A)
+print(len(A))
+
+
+# List7
+
+A = list(map(int, input().split()))
+
+print(A[::-1])
+print(A)
+
+
+# List9
+
+A = list(map(int, input().split()))
+
+average = sum(A) / len(A)
+filtered_elements = [x for x in A if x > average]
+
+print(filtered_elements)
+print(len(filtered_elements))
+
+
+# List10
+
+A = input().split()
+
+longest = A[0]
+shortest = A[0]
+
+for s in A:
+    if len(s) > len(longest):
+        longest = s
+    if len(s) < len(shortest):
+        shortest = s
+
+print(longest, len(longest))
+print(shortest, len(shortest))
+
+
+# List12
+
+A = list(map(int, input().split()))
+K = int(input())
+
+A.insert(K, 0)
+print(A)
+print(len(A))
+
+
+# List13
+
+A = list(map(int, input().split()))
+
+removed = A.pop()
+print(removed)
+print(A)
+
+
+# List14
+
+A = list(map(int, input().split()))
+D = int(input())
+
+count_D = A.count(D)
+first_index = A.index(D) if D in A else -1
+
+print(count_D)
+print(first_index)
+
+
+# List15
+
+A = list(map(int, input().split()))
+
+odd_positions_elements = A[0::2]
+print(odd_positions_elements)
+print(sum(odd_positions_elements))
