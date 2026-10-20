@@ -1409,3 +1409,375 @@ A = list(map(int, input().split()))
 odd_positions_elements = A[0::2]
 print(odd_positions_elements)
 print(sum(odd_positions_elements))
+
+
+# List16
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+print(sum(a))
+print(min(a))
+print(max(a))
+
+
+# List18
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+a.sort(reverse=True)
+print(a)
+print(len(a))
+
+
+# List20
+
+n = int(input())
+a = []
+for i in range(n):
+    a.append(int(input()))
+sq = [x * x for x in a]
+print(sq)
+print(sum(sq))
+
+# List24
+
+n = int(input())
+s = []
+for i in range(n):
+    s.append(input())
+print(sorted(s, key=len))
+print(max(s, key=len))
+
+
+# List27
+
+n = int(input())
+rows = []
+for i in range(n):
+    x = float(input())
+    y = float(input())
+    rows.append([x, y])
+rows.sort(key=lambda r: r[0], reverse=True)
+for r in rows:
+    print(r)
+print(rows[0])
+
+
+# List17
+
+A = list(map(int, input().split()))
+
+print(sorted(A))
+print(A)
+
+
+# List19
+
+strings = input().split()
+
+print(sorted(strings, key=len))
+print(max(strings, key=len))
+
+
+# List21
+
+A = list(map(int, input().split()))
+
+positive_elements = [x for x in A if x > 0]
+print(positive_elements)
+print(len(positive_elements))
+
+
+# List22
+
+A = list(map(int, input().split()))
+D = int(input())
+
+multiplied = [x * D for x in A]
+count_D = A.count(D)
+
+print(multiplied)
+print(count_D)
+
+
+# List23
+
+A = list(map(int, input().split()))
+
+print(sorted(A, key=abs, reverse=True))
+
+
+# List25
+
+A = list(map(int, input().split()))
+
+unique_sorted = sorted(A)
+print(unique_sorted[-2])
+
+
+# List26
+
+A = list(map(int, input().split()))
+
+average = sum(A) / len(A)
+greater_than_average = [x for x in A if x > average]
+
+print(greater_than_average)
+print(average)
+
+
+# List28
+
+strings = input().split()
+letter = input().strip()
+
+filtered_strings = [s for s in strings if s.startswith(letter)]
+print(filtered_strings)
+
+
+# List29
+
+A = list(map(int, input().split()))
+K = int(input())
+
+sorted_desc = sorted(A, reverse=True)
+print(sorted_desc[:K])
+
+
+# List30
+
+strings = input().split()
+
+lengths = [len(s) for s in strings]
+print(lengths)
+print(sum(lengths))
+
+
+# Proc1
+
+def power_a3(a):
+    return a ** 3
+
+for i in range(5):
+    a = float(input())
+    print(power_a3(a))
+
+
+# Proc3
+
+import math
+
+def mean(x, y):
+    amean = (x + y) / 2
+    gmean = math.sqrt(x * y)
+    return amean, gmean
+
+a = float(input())
+b = float(input())
+c = float(input())
+d = float(input())
+am, gm = mean(a, b)
+print(am)
+print(gm)
+am, gm = mean(a, c)
+print(am)
+print(gm)
+am, gm = mean(a, d)
+print(am)
+print(gm)
+
+
+# Proc6
+
+def digit_count_sum(k):
+    count = 0
+    total = 0
+    while k > 0:
+        total += k % 10
+        count += 1
+        k //= 10
+    return count, total
+
+for i in range(5):
+    k = int(input())
+    c, s = digit_count_sum(k)
+    print(c)
+    print(s)
+
+
+# Proc10
+
+def swap(x, y):
+    return y, x
+
+a = float(input())
+b = float(input())
+c = float(input())
+d = float(input())
+a, b = swap(a, b)
+c, d = swap(c, d)
+b, c = swap(b, c)
+print(a)
+print(b)
+print(c)
+print(d)
+
+
+# Proc12
+
+def sort_inc3(a, b, c):
+    if a > b:
+        a, b = b, a
+    if b > c:
+        b, c = c, b
+    if a > b:
+        a, b = b, a
+    return a, b, c
+
+a1 = float(input())
+b1 = float(input())
+c1 = float(input())
+a2 = float(input())
+b2 = float(input())
+c2 = float(input())
+print(sort_inc3(a1, b1, c1))
+print(sort_inc3(a2, b2, c2))
+
+
+# Proc2
+
+def power_a234(a):
+    return a**2, a**3, a**4
+
+for _ in range(5):
+    a = float(input())
+    p2, p3, p4 = power_a234(a)
+    print(p2, p3, p4)
+
+
+# Proc4
+
+import math
+
+def triangle_ps(a):
+    p = 3 * a
+    s = (a**2) * math.sqrt(3) / 4
+    return p, s
+
+for _ in range(3):
+    a = float(input())
+    p, s = triangle_ps(a)
+    print(p, s)
+
+
+# Proc5
+
+def rect_ps(x1, y1, x2, y2):
+    width = abs(x1 - x2)
+    height = abs(y1 - y2)
+    p = 2 * (width + height)
+    s = width * height
+    return p, s
+
+for _ in range(3):
+    x1, y1, x2, y2 = map(float, input().split())
+    p, s = rect_ps(x1, y1, x2, y2)
+    print(p, s)
+
+
+# Proc7
+
+def invert_digits(k):
+    return int(str(k)[::-1])
+
+for _ in range(5):
+    k = int(input())
+    print(invert_digits(k))
+
+
+# Proc8
+
+def add_right_digit(d, k):
+    return int(str(k) + str(d))
+
+k = int(input())
+d1 = int(input())
+d2 = int(input())
+
+k = add_right_digit(d1, k)
+print(k)
+k = add_right_digit(d2, k)
+print(k)
+
+
+# Proc9
+
+def add_left_digit(d, k):
+    return int(str(d) + str(k))
+
+k = int(input())
+d1 = int(input())
+d2 = int(input())
+
+k = add_left_digit(d1, k)
+print(k)
+k = add_left_digit(d2, k)
+print(k)
+
+
+# Proc11
+
+def minmax(x, y):
+    if x < y:
+        return x, y
+    return y, x
+
+a = float(input())
+b = float(input())
+c = float(input())
+d = float(input())
+
+min_ab, max_ab = minmax(a, b)
+min_cd, max_cd = minmax(c, d)
+min_val, _ = minmax(min_ab, min_cd)
+_, max_val = minmax(max_ab, max_cd)
+
+print(min_val, max_val)
+
+
+# Proc13
+
+def sort_dec3(a, b, c):
+    res = sorted([a, b, c], reverse=True)
+    return res[0], res[1], res[2]
+
+for _ in range(2):
+    a, b, c = map(float, input().split())
+    res_a, res_b, res_c = sort_dec3(a, b, c)
+    print(res_a, res_b, res_c)
+
+
+# Proc14
+
+def shift_right3(a, b, c):
+    return c, a, b
+
+for _ in range(2):
+    a, b, c = map(float, input().split())
+    res_a, res_b, res_c = shift_right3(a, b, c)
+    print(res_a, res_b, res_c)
+
+
+# Proc15
+
+def shift_left3(a, b, c):
+    return b, c, a
+
+for _ in range(2):
+    a, b, c = map(float, input().split())
+    res_a, res_b, res_c = shift_left3(a, b, c)
+    print(res_a, res_b, res_c)
